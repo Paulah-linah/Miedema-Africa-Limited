@@ -84,7 +84,7 @@ body {
 
 .about-us {
   padding: 50px 5%;
-  background: #f9f9f9;
+  background: linear-gradient(to right, #f8f8f8, #dcdcdc);
   text-align: center;
 }
 
@@ -93,6 +93,8 @@ body {
   color: #000000;
   margin-bottom: 10px;
   font-weight: bold;
+  font-family: 'Times New Roman', serif;
+
 }
 
 .about-title p {
@@ -102,7 +104,10 @@ body {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Times New Roman', serif;
+
 }
+
 
 .scroll-controls {
   display: flex;
@@ -157,7 +162,7 @@ body {
 }
 
 .card i {
-  font-size: 28px;
+  font-size: 40px;
   color: #ff9900;
   margin-bottom: 12px;
 }
@@ -171,6 +176,7 @@ body {
 .card ul {
   font-size: 20px;
   line-height: 1.5;
+  
 }
 
 .card ul {
@@ -295,4 +301,103 @@ background: linear-gradient(to right, #ffffff, #333333);
 .services-card p {
   font-size: 18px;
   color: #444;
+}
+
+
+.our-projects {
+  padding: 60px 20px;
+  background: linear-gradient(to right, #f8f8f8, #cfcfcf);
+  text-align: center;
+}
+
+.projects-header h2 {
+  font-family: 'Times New Roman', serif;
+  font-size: 36px;
+  position: relative;
+  display: inline-block;
+}
+
+.projects-header .line {
+  width: 150px;
+  height: 2px;
+  background-color: #666;
+  margin: 10px auto;
+}
+
+.projects-header p {
+  font-size: 18px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.projects-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projects-gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 30px;
+  padding: 10px 0;
+  scrollbar-width: none; /* Firefox */
+}
+
+.projects-gallery::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+.project-item {
+  flex: 0 0 auto;
+  width: 380px;
+  cursor: pointer;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+.project-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.project-item.video {
+  width: 380px;
+}
+
+.project-item.video video {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Scroll Arrows */
+.scroll-arrow {
+  background-color: #ff9900;
+  border: none;
+  color: white;
+  font-size: 28px;
+  padding: 10px;
+  cursor: pointer;
+  position: absolute;
+  bottom: 20%;
+  transform: translateY(-50%);
+  z-index: 10;
+  border-radius: 0%;
+}
+
+.scroll-arrow.left {
+  left: 0;
+}
+
+.scroll-arrow.right {
+  right: 0;
 }
