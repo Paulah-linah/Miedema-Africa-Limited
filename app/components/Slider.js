@@ -23,7 +23,15 @@ export default function Slider() {
       <div className="slides">
         {images.map((item, index) => (
           <div className={`slide ${index === current ? 'active' : ''}`} key={index}>
-            <Image src={item.src} alt={`Slide ${index + 1}`} fill style={{ objectFit: 'cover' }} />
+            <Image
+              src={item.src}
+              alt={`Slide ${index + 1}`}
+              fill
+              priority={index === 0} // Prioritize loading the first image
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              quality={100} // Ensure high-quality images
+              style={{ objectFit: 'cover' }}
+            />
             <div className="caption">{item.caption}</div>
           </div>
         ))}

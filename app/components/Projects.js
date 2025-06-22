@@ -115,10 +115,10 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        <button onClick={prevSlide} className="nav-btn prev">
+        <button onClick={prevSlide} className="nav-btn prev text-accent">
           <FaChevronLeft />
         </button>
-        <button onClick={nextSlide} className="nav-btn next">
+        <button onClick={nextSlide} className="nav-btn next text-accent">
           <FaChevronRight />
         </button>
       </div>

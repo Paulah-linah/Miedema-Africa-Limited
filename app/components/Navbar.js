@@ -15,6 +15,11 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  // Close the mobile menu when a link is clicked
+  const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="bg-neutral-dark/90 backdrop-blur-sm shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -51,18 +56,27 @@ export default function Navbar() {
         </div>
       </div>
 
-      {isOpen && (
-        <div className="md:hidden" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium transition-colors flex items-center">
-                <span className="mr-2">{link.icon}</span>
-                {link.label}
-              </Link>
-            ))}
-          </div>
+      {/* Mobile menu with smooth transition */}
+      <div
+        className={`transition-all duration-300 ease-in-out md:hidden ${ 
+          isOpen ? 'max-h-96' : 'max-h-0'
+        } overflow-hidden`}
+        id="mobile-menu"
+      >
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={handleLinkClick} // Close menu on click
+              className="text-gray-300 hover:text-accent block px-3 py-2 rounded-md text-base font-medium transition-colors flex items-center"
+            >
+              <span className="mr-2">{link.icon}</span>
+              {link.label}
+            </Link>
+          ))}
         </div>
-      )}
+      </div>
     </nav>
   );
 }
