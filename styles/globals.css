@@ -921,7 +921,7 @@ body {
 }
 
 .project-media {
-  width: 100%;
+  width: 400%;
   height: 100%;
   object-fit: cover;
 }
@@ -958,7 +958,7 @@ body {
   background-color: transparent;
   border: none;
   font-size: 2.5rem;
-  color: #333;
+  color: #ff9900;
   cursor: pointer;
   z-index: 10;
   transition: color 0.3s;
