@@ -28,7 +28,7 @@ export default function Slider() {
               alt={`Slide ${index + 1}`}
               fill
               priority={index === 0} // Prioritize loading the first image
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="100vw"
               quality={100} // Ensure high-quality images
               style={{ objectFit: 'cover' }}
             />
