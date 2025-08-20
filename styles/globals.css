@@ -45,6 +45,10 @@
   max-width: 90%;
 }
 
+.slide-image {
+  object-fit: cover;
+}
+
 /* Responsive adjustments for tablet */
 @media (max-width: 1024px) {
   .slider {
@@ -67,6 +71,10 @@
     padding: 0.8rem 1.5rem;
     bottom: 8%;
     width: 85%;
+  }
+
+  .slide-image {
+    object-fit: contain;
   }
 }
 

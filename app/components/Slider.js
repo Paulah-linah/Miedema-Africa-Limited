@@ -30,7 +30,7 @@ export default function Slider() {
               priority={index === 0} // Prioritize loading the first image
               sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
               quality={100} // Ensure high-quality images
-              style={{ objectFit: 'cover' }}
+              className="slide-image"
             />
             <div className="caption">{item.caption}</div>
           </div>
