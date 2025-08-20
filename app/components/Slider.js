@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const images = [
-  { src: '/images/Trial.jpeg', caption: 'Quality Comes First' },
-  { src: '/images/Trial 2.jpeg', caption: 'Building the Future' },
-  { src: '/images/Trial 3.jpeg', caption: 'Reliable & Trusted' }
+  { src: '/images/ak.jpeg', caption: 'Quality Comes First' },
+  { src: '/images/ak1.jpeg', caption: 'Building the Future' },
+  { src: '/images/ak2.jpeg', caption: 'Reliable & Trusted' }
 ];
 
 export default function Slider() {
