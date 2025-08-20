@@ -21,12 +21,12 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="bg-neutral-dark/90 backdrop-blur-sm shadow-md sticky top-0 z-50">
+        <nav className="bg-black backdrop-blur-sm shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link href="/">
-              <img src="/images/logo.jpeg" alt="Miedema Africa Logo" className="h-10" />
+                            <img src="/images/logo.jpeg" alt="Miedema Africa Logo" className="h-12" />
             </Link>
           </div>
           <div className="hidden md:block">
@@ -40,7 +40,7 @@ export default function Navbar() {
             </div>
           </div>
           <div className="-mr-2 flex md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} type="button" className="bg-neutral-dark inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-neutral-700 focus:outline-none">
+                        <button onClick={() => setIsOpen(!isOpen)} type="button" className="bg-black inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-neutral-700 focus:outline-none">
               <span className="sr-only">Open main menu</span>
               {isOpen ? (
                 <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
