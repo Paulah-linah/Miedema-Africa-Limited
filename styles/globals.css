@@ -6,7 +6,7 @@
 .slider {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9; /* Default aspect ratio for desktop */
+  height: 80vh; /* Default height for desktop */
   overflow: hidden;
 }
 
@@ -48,7 +48,7 @@
 /* Responsive adjustments for tablet */
 @media (max-width: 1024px) {
   .slider {
-    aspect-ratio: 4 / 3;
+    height: 60vh; /* Adjust height for tablets */
   }
   .caption {
     font-size: 1.5rem;
@@ -59,7 +59,7 @@
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
   .slider {
-    aspect-ratio: 1 / 1; /* Square aspect ratio for mobile */
+    height: 50vh; /* Adjust height for mobile */
   }
 
   .caption {
