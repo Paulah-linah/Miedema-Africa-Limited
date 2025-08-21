@@ -1,13 +1,14 @@
 'use client';
 
 import React from 'react';
-import { FaCogs, FaDraftingCompass, FaHardHat } from 'react-icons/fa';
+import { FaAddressCard, FaClipboardList, FaCogs, FaDraftingCompass, FaHandPaper, FaHardHat, FaPaperPlane } from 'react-icons/fa';
+import { FaClapperboard } from 'react-icons/fa6';
 
 const services = [
   {
-    icon: <FaCogs />,
-    title: 'General Supplies',
-    description: 'We provide a wide range of general supplies to meet the needs of various industries, ensuring quality and timely delivery.',
+    icon: <FaClipboardList />,
+    title: 'Project Management',
+    description: 'We provide comprehensive project management services to ensure successful project delivery.',
   },
   {
     icon: <FaDraftingCompass />,
