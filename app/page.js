@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
-import Services from './components/Services';
+import OurServices from './components/OurServices';
 import WhyChooseUs from './components/WhyChooseUs';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -15,7 +15,7 @@ export default function Home() {
       <main>
         <Slider />
         <AboutUs />
-        <Services />
+        <OurServices />
         <Projects />
         <WhyChooseUs />
         <Contact />

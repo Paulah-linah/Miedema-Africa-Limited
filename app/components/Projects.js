@@ -1,6 +1,5 @@
 'use client';
-
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
@@ -8,58 +7,62 @@ const projects = [
   {
     type: 'image',
     src: '/images/C1.jpeg',
-    title: 'Residential Building',
-    description: 'A look at the exterior and architectural design.'
+    title: 'Modern Residence',
+    description: 'A stunning example of modern architecture and design.',
   },
   {
     type: 'video',
     src: '/images/V1.mp4',
-    title: 'Residential Building',
-    description: 'A virtual tour showcasing the building and its features.'
+    title: 'Luxury Villa Tour',
+    description: 'A virtual walkthrough of a luxury villa project.',
   },
   {
     type: 'image',
     src: '/images/C2.jpeg',
-    title: 'Residential Building',
-    description: 'A look at the exterior and architectural design.'
+    title: 'Commercial Complex',
+    description: 'An innovative commercial space with state-of-the-art facilities.',
   },
   {
     type: 'image',
     src: '/images/C3.jpeg',
-    title: 'Residential Building',
-    description: 'A look at the exterior and architectural design.'
+    title: 'Urban Development',
+    description: 'A large-scale urban development project in the city center.',
   },
   {
     type: 'image',
     src: '/images/C4.jpeg',
-    title: 'Residential Building',
-    description: 'A look at the exterior and architectural design.'
-  }
+    title: 'Residential Tower',
+    description: 'A high-rise residential tower with panoramic city views.',
+  },
+  {
+    type: 'image',
+    src: '/images/C5.jpeg',
+    title: 'Community Center',
+    description: 'A community center designed for recreational and social activities.',
+  },
 ];
 
 const Projects = () => {
   const [current, setCurrent] = useState(0);
-  const length = projects.length;
   const videoRef = useRef(null);
 
-  const pauseVideo = () => {
+  const pauseVideo = useCallback(() => {
     if (videoRef.current) {
       videoRef.current.pause();
     }
-  };
+  }, []);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     pauseVideo();
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
+    setCurrent((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  }, [pauseVideo]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     pauseVideo();
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
+    setCurrent((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  }, [pauseVideo]);
 
   useEffect(() => {
-    // Reset and pause video when the active slide is a video
     if (projects[current].type === 'video' && videoRef.current) {
       videoRef.current.currentTime = 0;
       videoRef.current.pause();
@@ -73,8 +76,8 @@ const Projects = () => {
   return (
     <section id="projects" className="projects-section">
       <div className="projects-title">
-        <h2 className="text-4xl font-bold text-neutral-dark">OUR PROJECTS</h2>
-        <p className="mt-4 text-xl text-gray-600">Explore our portfolio of completed projects.</p>
+        <h2>OUR PROJECTS</h2>
+        <p>Explore our portfolio of completed projects.</p>
       </div>
       <div className="projects-slider-container">
         <div className="projects-slider">
@@ -92,6 +95,7 @@ const Projects = () => {
                       fill
                       style={{ objectFit: 'cover' }}
                       className="project-media"
+                      priority={index === 0} // Prioritize loading the first image
                     />
                   ) : (
                     <video
@@ -99,7 +103,7 @@ const Projects = () => {
                       className="project-media"
                       controls
                       playsInline
-                      key={project.src} // Add key to force re-render
+                      key={project.src}
                     >
                       <source src={project.src} type="video/mp4" />
                     </video>
@@ -115,10 +119,10 @@ const Projects = () => {
             </div>
           ))}
         </div>
-        <button onClick={prevSlide} className="nav-btn prev text-accent">
+        <button onClick={prevSlide} className="nav-btn prev">
           <FaChevronLeft />
         </button>
-        <button onClick={nextSlide} className="nav-btn next text-accent">
+        <button onClick={nextSlide} className="nav-btn next">
           <FaChevronRight />
         </button>
       </div>
