@@ -61,9 +61,9 @@
 }
 
 /* Responsive adjustments for mobile */
-@media (max-width: 768px) {
+@media (max-width: 668px) {
   .slider {
-    height: 50vh; /* Adjust height for mobile */
+    height: 40vh; /* Adjust height for mobile */
   }
 
   .caption {
