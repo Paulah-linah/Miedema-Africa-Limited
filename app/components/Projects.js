@@ -46,6 +46,16 @@ const Projects = () => {
   const [current, setCurrent] = useState(0);
   const videoRef = useRef(null);
 
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
+
   const pauseVideo = useCallback(() => {
     if (videoRef.current) {
       videoRef.current.pause();
@@ -74,55 +84,49 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="projects-section">
-      <div className="projects-title">
-        <h2>OUR PROJECTS</h2>
-        <p>Explore our portfolio of completed projects.</p>
+    <section id="projects" className="py-12 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-4xl font-bold text-neutral-dark">OUR PROJECTS</h2>
+        <p className="mt-4 text-xl text-gray-600">Explore our portfolio of completed projects.</p>
       </div>
-      <div className="projects-slider-container">
-        <div className="projects-slider">
+      <div className="about-us-slider">
+        <button onClick={prevSlide} className="slider-btn prev-btn">
+          <FaChevronLeft />
+        </button>
+        <div className="slider-content">
           {projects.map((project, index) => (
-            <div
-              className={index === current ? 'project-slide active' : 'project-slide'}
-              key={index}
-            >
+            <div key={index} className={`slide ${index === current ? 'active' : ''}`}>
               {index === current && (
-                <div className="project-card">
-                  {project.type === 'image' ? (
-                    <Image
-                      src={project.src}
-                      alt={project.title}
-                      fill
-                      style={{ objectFit: 'cover' }}
-                      className="project-media"
-                      priority={index === 0} // Prioritize loading the first image
-                    />
-                  ) : (
-                    <video
-                      ref={videoRef}
-                      className="project-media"
-                      controls
-                      playsInline
-                      key={project.src}
-                    >
-                      <source src={project.src} type="video/mp4" />
-                    </video>
-                  )}
-                  <div className="project-overlay">
-                    <div className="project-info">
-                      <h3>{project.title}</h3>
-                      <p>{project.description}</p>
-                    </div>
+                <div className="slide-card">
+                  <div className="project-media-container">
+                    {project.type === 'image' ? (
+                      <Image
+                        src={project.src}
+                        alt={project.title}
+                        fill
+                        className="project-media"
+                        priority={index === 0}
+                      />
+                    ) : (
+                      <video
+                        ref={videoRef}
+                        className="project-media"
+                        playsInline
+                        onClick={handleVideoClick}
+                        key={project.src}
+                      >
+                        <source src={project.src} type="video/mp4" />
+                      </video>
+                    )}
                   </div>
+                  <h3 className="card-title">{project.title}</h3>
+                  <p className="card-text">{project.description}</p>
                 </div>
               )}
             </div>
           ))}
         </div>
-        <button onClick={prevSlide} className="nav-btn prev">
-          <FaChevronLeft />
-        </button>
-        <button onClick={nextSlide} className="nav-btn next">
+        <button onClick={nextSlide} className="slider-btn next-btn">
           <FaChevronRight />
         </button>
       </div>
