@@ -8,7 +8,7 @@ const projects = [
     type: 'image',
     src: '/images/C1.jpeg',
     title: 'Modern Residence',
-    description: 'A stunning example of modern architecture and design.',
+    description: 'A modern residence with different phases of construction.',
   },
   {
     type: 'video',
